@@ -1,3 +1,5 @@
+import additionFunction from "./sum";
+
 console.log("Hello");
 console.log("Apples");
 console.log("This is a statement");
@@ -53,3 +55,8 @@ function printDetails({ name, location: {city}, employment: {title} }) {
 }
 
 printDetails(myData3);
+
+let values = [10, 20, 30, 40, 50];
+
+let total = additionFunction(values);
+console.log(`Total: ${total}`);
