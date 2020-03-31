@@ -1,4 +1,6 @@
-import additionFunction from "./sum";
+import oddOnly, { sumValues } from "./sum";
+import * as ops from "./operations";
+import { asyncAdd } from "./async";
 
 console.log("Hello");
 console.log("Apples");
@@ -58,5 +60,18 @@ printDetails(myData3);
 
 let values = [10, 20, 30, 40, 50];
 
-let total = additionFunction(values);
-console.log(`Total: ${total}`);
+let total = sumValues(values);
+let odds = oddOnly(values);
+
+console.log(`Total: ${total}, Odd Total: ${odds}`);
+console.log(`Multiply: ${ops.multiply(values)}`);
+console.log(`Substract: ${ops.substract(1000, values)}`);
+
+asyncAdd(values).then(total => console.log(`Main Total: ${total}`));
+
+async function doTask() {
+    let total = await asyncAdd(values);
+    console.log(`Main Total 2: ${total}`);
+}
+
+doTask();
